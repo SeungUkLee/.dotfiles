@@ -1,4 +1,4 @@
-# :computer: dotfiles
+# dotfiles
 
 ```
 # ~/dotfiles
