@@ -1,0 +1,17 @@
+#-------------------------------------------------------------------------------
+# Preferred editor for local and remote sessions
+#-------------------------------------------------------------------------------
+
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+export EDITOR=/usr/local/bin/nvim
+
+#-------------------------------------------------------------------------------
+# Using pipenv like node_moudels.
+#-------------------------------------------------------------------------------
+
+export PIPENV_VENV_IN_PROJECT=1
