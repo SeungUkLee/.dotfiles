@@ -19,3 +19,6 @@
 └── manual_install_applications # 수동 설치해야 할 애플리케이션 목록
 ```
 
+## Reference
+
+[dotfiles 만들기](https://blog.appkr.dev/work-n-play/dotfiles/)

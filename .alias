@@ -12,3 +12,9 @@ alias vimdiff="nvim -d"
 
 alias ipython="python3 -m IPython"
 
+#-------------------------------------------------------------------------------
+# CLI Shortcuts
+#-------------------------------------------------------------------------------
+
+# Reload zsh
+alias rr="source $HOME/.zshrc"
