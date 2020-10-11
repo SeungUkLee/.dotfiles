@@ -7,9 +7,6 @@ tap "homebrew/core"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 
-# tap "homebrew/cask-versions"
-# tap "homebrew/php"
-
 #-------------------------------------------------------------------------------
 # Libraries 
 #-------------------------------------------------------------------------------
@@ -38,55 +35,27 @@ brew "git-lfs"
 brew "gh"
 
 # Related Terminal & Editor & Shell
-brew "zsh-completions"
 brew "zsh"
 brew "tmux"
 brew "starship"
 brew "fish"
-
-## Python
-## openssl, readline, sqlite3, xs, zlib is suggested build dependencies for pyenv
-## https://github.com/pyenv/pyenv/wiki
-# brew "pipenv"
-# brew "pyenv"
-# brew "readline"
-# brew "zlib"
-# brew "sqlite"
-# brew "xz"
-
-
-## Ruby
-# brew "ruby-build"
-# brew "rbenv"
-
-## Go
-# brew "go"
+brew "neovim"
 
 ## Haskell
 # brew "haskell-stack"
 
 ## Java
-# brew "gradle"
-# brew "jenv"
-# brew "maven"
-# brew "openjdk"
-
-## Scala
-# brew "sbt"
+brew "openjdk"
 
 ## DevOps
 # brew "circleci"
-# brew "kubernetes-cli", link: false
-# brew "minikube"
 # brew "terraform"
 
 ## Etc..
-# brew "gnu-getopt"
-# brew "gnupg"
-# brew "coreutils"
-# brew "graphviz"
-# brew "git-flow-avh"
-# brew "qcachegrind"
+brew "gnu-getopt"
+brew "gnupg"
+brew "coreutils"
+brew "readline"
 
 #-------------------------------------------------------------------------------
 # External Application (Homebrew Cask)
@@ -97,12 +66,6 @@ cask "font-hack-nerd-font"
 cask "font-jetbrains-mono"
 cask "gpg-suite"
 cask "keybase"
-
-# cask "java"
-# cask "java8"
-# cask "minikube"
-# cask "emacs"
-# cask "discord"
 
 #----
 cask "google-chrome"
