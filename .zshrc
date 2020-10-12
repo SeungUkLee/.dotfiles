@@ -26,23 +26,18 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 #-------------------------------------------------------------------------------
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions fasd)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions fasd)
 
+#-------------------------------------------------------------------------------
+# zsh-completions
+#-------------------------------------------------------------------------------
+autoload -U compinit && compinit
 
 #-------------------------------------------------------------------------------
 # Activate Oh-My-Zsh
 #-------------------------------------------------------------------------------
 
 source $ZSH/oh-my-zsh.sh
-
-#-------------------------------------------------------------------------------
-# oh-my-zsh theme pure prompt settings
-#-------------------------------------------------------------------------------
-
-autoload -U promptinit; promptinit
-prompt pure
-
-PURE_PROMPT_SYMBOL=λ
 
 #-------------------------------------------------------------------------------
 # Default user setting
@@ -78,3 +73,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+#-------------------------------------------------------------------------------
+# pyenvstarship shell prompt
+#-------------------------------------------------------------------------------
+eval "$(starship init zsh)"
