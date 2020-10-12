@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Preferred editor for local and remote sessions
+# Neovim
 #-------------------------------------------------------------------------------
 
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -11,7 +11,18 @@
 export EDITOR=/usr/local/bin/nvim
 
 #-------------------------------------------------------------------------------
-# Using pipenv like node_moudels.
+# GPG
+# @see https://github.com/keybase/keybase-issues/issues/2798# neovim
 #-------------------------------------------------------------------------------
 
-export PIPENV_VENV_IN_PROJECT=1
+export GPG_TTY=$(tty)
+
+#-------------------------------------------------------------------------------
+# Starship config
+#-------------------------------------------------------------------------------
+
+export STARSHIP_CONFIG=~/.config/starship.toml
+
+#------------------------------------------------------------------------------- 
+# export LANG=en_US.UTF-8
+# export LC_ALL=$LANG

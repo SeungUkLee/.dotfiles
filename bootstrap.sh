@@ -4,13 +4,15 @@
 # Set temporary variable
 #-------------------------------------------------------------------------------
 
-DOTFILES=$HOME/dotfiles
+export DOTFILES=$HOME/.dotfiles
 
 #-------------------------------------------------------------------------------
 # Update dotfiles itself first
 #-------------------------------------------------------------------------------
 
-[ -d "$DOTFILES/.git" ] && git --work-tree="$DOTFILES" --git-dir="$DOTFILES/.git" pull origin master
+if [ -d "$DOTFILES/.git" ]; then
+  git --work-tree="$DOTFILES" --git-dir="$DOTFILES/.git" pull origin master
+fi
 
 #-------------------------------------------------------------------------------
 # Check for Homebrew and install if we don't have it
@@ -40,9 +42,22 @@ brew cask cleanup
 #-------------------------------------------------------------------------------
 
 ln -nfs $DOTFILES/.gitconfig $HOME/.gitconfig
+
+read -p "Enter your git username: " git_username
+read -p "Enter your e-mail: " git_email
+read -p "Enter your GPG key ID: " git_sign_key
+
 git config --global core.excludesfile $DOTFILES/.gitignore_global
-git config --global user.name "SeungukLee"
-git config --global user.email "lsy931106@gmail.com"
+git config --global user.name $git_username
+git config --global user.email $git_email
+git config --global user.signingkey $git_sign_key
+
+
+#-------------------------------------------------------------------------------
+# Make ZSH the default shell environment
+#-------------------------------------------------------------------------------
+
+chsh -s $(which zsh)
 
 #-------------------------------------------------------------------------------
 # Install Oh-my-zsh
@@ -51,32 +66,18 @@ git config --global user.email "lsy931106@gmail.com"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #-------------------------------------------------------------------------------
-# Install pure ZSH prompt 
-# ref) https://github.com/sindresorhus/pure#getting-started
-#-------------------------------------------------------------------------------
-
-mkdir -p "$HOME/.zsh"
-git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-fpath+=("$HOME/.zsh/pure")
-
-#-------------------------------------------------------------------------------
 # Install zsh plugin
 #-------------------------------------------------------------------------------
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-#-------------------------------------------------------------------------------
-# Install & execute profile
-#-------------------------------------------------------------------------------
-
-# Always prefer dotfiles' .zshrc
-ln -nfs $DOTFILES/.zshrc $HOME/.zshrc
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 #-------------------------------------------------------------------------------
 # Source profile
 #-------------------------------------------------------------------------------
 
+ln -nfs $DOTFILES/.zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
 #-------------------------------------------------------------------------------

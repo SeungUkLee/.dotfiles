@@ -1,6 +1,6 @@
 [user]
-    name = SeungUkLee
-    email = lsy931106@gmail.com
+    name = {{GIT_USERNAME}}
+    email = {{GIT_EMAIL}}
 [alias]
     lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
