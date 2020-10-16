@@ -1,6 +1,7 @@
 [user]
   name = {{GIT_USERNAME}}
   email = {{GIT_EMAIL}}
+  signingkey = {{GIT_SIGNINGKEY}}
 [alias]
 	alias-basic = "!#----------------------------------------------------------;\n\
     git alias | head -4"
@@ -204,7 +205,7 @@
   precomposeunicode = true
   quotepath = false
 [commit]
-  template = /Users/SeungUk/.stCommitMsg
+  gpgsign = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

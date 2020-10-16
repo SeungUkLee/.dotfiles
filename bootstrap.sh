@@ -83,6 +83,13 @@ ln -nfs $DOTFILES/.zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
 #-------------------------------------------------------------------------------
+# gpg-agent
+# @see https://github.com/pstadler/keybase-gpg-github#method-2---gpg-suite
+#-------------------------------------------------------------------------------
+
+mkdir -p $HOME/.gnupg && cp $DOTFILES/gpg-agent.conf ~/.gnupg
+
+#-------------------------------------------------------------------------------
 # Set OS X preferences
 # We will run this last because this will reload the shell
 # Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753
