@@ -51,7 +51,9 @@ git config --global core.excludesfile $DOTFILES/.gitignore_global
 git config --global user.name $git_username
 git config --global user.email $git_email
 git config --global user.signingkey $git_sign_key
-
+git config --global init.defaultBranch main
+git config --global pull.rebase true
+git config --global rebase.autoStash true
 
 #-------------------------------------------------------------------------------
 # Make ZSH the default shell environment
