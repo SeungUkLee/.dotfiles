@@ -2,22 +2,13 @@
 # Path to your dotfiles installation.
 #-------------------------------------------------------------------------------
 
-export DOTFILES=$HOME/dotfiles
+export DOTFILES=$HOME/.dotfiles
 
 #-------------------------------------------------------------------------------
 # Path to your oh-my-zsh installation.
 #-------------------------------------------------------------------------------
 
 export ZSH=/Users/SeungUk/.oh-my-zsh
-
-#-------------------------------------------------------------------------------
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#-------------------------------------------------------------------------------
-
-ZSH_THEME="robbyrussell"
 
 #-------------------------------------------------------------------------------
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -51,7 +42,7 @@ DEFAULT_USER="$USER"
 # * ~/.extra can be used for other settings you don’t want to commit.
 #-------------------------------------------------------------------------------
 
-files=("$DOTFILES/.export" "$DOTFILES/.path" "$DOTFILES/.aliases" "$DOTFILES/.functions" "$DOTFILES/.extra");
+files=("$DOTFILES/export.sh" "$DOTFILES/path.sh" "$DOTFILES/aliases.sh" "$DOTFILES/functions.sh");
 
 for file in "${files[@]}"; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -60,20 +51,15 @@ done;
 unset files file;
 
 #-------------------------------------------------------------------------------
-# direnv
+# starship shell prompt
 #-------------------------------------------------------------------------------
 
-eval "$(direnv hook zsh)"
-
-#-------------------------------------------------------------------------------
-# pyenv
-#-------------------------------------------------------------------------------
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-#-------------------------------------------------------------------------------
-# pyenvstarship shell prompt
-#-------------------------------------------------------------------------------
 eval "$(starship init zsh)"
+
+#-------------------------------------------------------------------------------
+# asdf config
+# "echo -e '\n. $(brew --prefix asdf)/asdf.sh' >> ~/.zshrc" execution result
+# @see https://github.com/asdf-vm/asdf/issues/428#issuecomment-507058409
+#-------------------------------------------------------------------------------
+
+. $(brew --prefix asdf)/asdf.sh

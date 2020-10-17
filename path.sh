@@ -10,11 +10,11 @@ export PATH="/usr/local/sbin:$PATH"
 # Rust
 #-------------------------------------------------------------------------------
 
-# export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 #-------------------------------------------------------------------------------
 # Haskell
 #-------------------------------------------------------------------------------
 
-# export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin
 
