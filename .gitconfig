@@ -1,7 +1,7 @@
 [user]
-  name = {{GIT_USERNAME}}
-  email = {{GIT_EMAIL}}
-  signingkey = {{GIT_SIGNINGKEY}}
+	name = SeungukLee
+	email = seunguk@seunguk.dev
+	signingkey = CDB070320580A52D
 [alias]
 	alias-basic = "!#----------------------------------------------------------;\n\
     git alias | head -4"
