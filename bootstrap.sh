@@ -51,7 +51,9 @@ git config --global core.excludesfile $DOTFILES/.gitignore_global
 git config --global user.name $git_username
 git config --global user.email $git_email
 git config --global user.signingkey $git_sign_key
-
+git config --global init.defaultBranch main
+git config --global pull.rebase true
+git config --global rebase.autoStash true
 
 #-------------------------------------------------------------------------------
 # Make ZSH the default shell environment
@@ -79,6 +81,13 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 
 ln -nfs $DOTFILES/.zshrc $HOME/.zshrc
 source $HOME/.zshrc
+
+#-------------------------------------------------------------------------------
+# gpg-agent
+# @see https://github.com/pstadler/keybase-gpg-github#method-2---gpg-suite
+#-------------------------------------------------------------------------------
+
+mkdir -p $HOME/.gnupg && cp $DOTFILES/gpg-agent.conf ~/.gnupg
 
 #-------------------------------------------------------------------------------
 # Set OS X preferences
