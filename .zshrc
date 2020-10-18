@@ -63,3 +63,13 @@ eval "$(starship init zsh)"
 #-------------------------------------------------------------------------------
 
 . $(brew --prefix asdf)/asdf.sh
+
+#-------------------------------------------------------------------------------
+# fzf
+# To install useful key bindings and fuzzy completion
+# "$(brew --prefix)/opt/fzf/install" execution result
+# @see https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
+#-------------------------------------------------------------------------------
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
