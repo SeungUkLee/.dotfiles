@@ -195,7 +195,12 @@
     f() { \
       if [ $(which fzf | wc -l) -lt 1 ]; then \
         echo 'Not found : fzf'; \
-        echo '    see          : https://github.com/junegunn/fzf#installation'; \
+        echo 'see : https://github.com/junegunn/fzf#installation'; \
+        echo '';\
+      fi; \
+      if [ $(which bat | wc -l) -lt 1 ]; then \
+        echo 'Not found : bat'; \
+        echo 'see : https://github.com/sharkdp/bat#on-macos-or-linux-via-homebrew'; \
         echo '';\
       fi; \
     }; f"
