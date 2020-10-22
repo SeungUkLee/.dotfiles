@@ -90,6 +90,12 @@ source $HOME/.zshrc
 mkdir -p $HOME/.gnupg && cp $DOTFILES/gpg-agent.conf ~/.gnupg
 
 #-------------------------------------------------------------------------------
+# Starship config
+#-------------------------------------------------------------------------------
+
+ln -sfn $DOTFILES/starship.toml $HOME/.config/starship.toml
+
+#-------------------------------------------------------------------------------
 # Set OS X preferences
 # We will run this last because this will reload the shell
 # Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753
