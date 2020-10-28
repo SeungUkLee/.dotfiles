@@ -66,6 +66,7 @@ cask "font-hack-nerd-font"
 cask "font-jetbrains-mono"
 cask "gpg-suite"
 cask "keybase"
+cask "karabiner-elements"
 
 #----
 cask "google-chrome"
