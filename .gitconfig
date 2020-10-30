@@ -6,7 +6,7 @@
 	alias-basic = "!#----------------------------------------------------------;\n\
     git alias | head -4"
 	s = status -s -uall
-	cm = commit -m
+	cm = commit -v
 	ca = commit --amend
 
 	alias-log = "!#----------------------------------------------------------;\n\
