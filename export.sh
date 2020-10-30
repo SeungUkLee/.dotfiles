@@ -28,3 +28,13 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 #-------------------------------------------------------------------------------
 export LANG=en_US.UTF-8
 export LC_ALL=$LANG
+
+#-------------------------------------------------------------------------------
+# fzf
+#-------------------------------------------------------------------------------
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
