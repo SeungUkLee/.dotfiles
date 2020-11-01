@@ -2,10 +2,10 @@
 inoremap jk <esc>
 
 " Arrow keys
-map i <Up>
-map j <Left>
-map k <Down>
-noremap h i
+"map i <Up>
+"map j <Left>
+"map k <Down>
+"noremap h i
 
 " Searching
 set hlsearch
@@ -20,7 +20,7 @@ set bs=indent,eol,start
 set nocp
 
 " Gui settings
-"set number
+set number
 set relativenumber
 set laststatus=2
 set lazyredraw
