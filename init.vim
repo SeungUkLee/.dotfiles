@@ -20,7 +20,7 @@ set bs=indent,eol,start
 set nocp
 
 " Gui settings
-" set number
+"set number
 set relativenumber
 set laststatus=2
 set lazyredraw
@@ -42,7 +42,7 @@ set wildmode=full
 
 set list listchars=tab:·\ ,trail:·,extends:>,precedes:<
 
-" Neovim Config {{
+" Coc.nvim Config {{
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -198,7 +198,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" Neovim Config }}
+" Coc.nvim Config }}
 
 " FZF
 set rtp+=/usr/local/opt/fzf
