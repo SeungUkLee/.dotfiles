@@ -102,6 +102,14 @@ ln -sfn $DOTFILES/starship.toml $HOME/.config/starship.toml
 ln -nfs $DOTFILES/init.vim $HOME/.config/nvim/init.vim
 
 #-------------------------------------------------------------------------------
+# Tmux config
+#-------------------------------------------------------------------------------
+
+ln -sfn $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+chmod +x $DOTFILES/tmux/tmux-*
+ln -sfn $DOTFILES/tmux/tmux-* /usr/local/bin/
+
+#-------------------------------------------------------------------------------
 # Set OS X preferences
 # We will run this last because this will reload the shell
 # Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753
