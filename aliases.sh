@@ -11,7 +11,7 @@ alias vimdiff='nvim -d'
 #-------------------------------------------------------------------------------
 
 alias rr='source $HOME/.zshrc'
-alias cat='bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)'
+alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
 alias cls='clear'
 alias til='code $HOME/Documents/Github/TIL'
 alias ls='exa -h --icons'
