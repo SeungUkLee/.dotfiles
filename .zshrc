@@ -17,7 +17,7 @@ export ZSH=/Users/SeungUk/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 #-------------------------------------------------------------------------------
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions fasd)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 #-------------------------------------------------------------------------------
 # zsh-completions
@@ -73,3 +73,8 @@ eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+#-------------------------------------------------------------------------------
+# starship shell prompt
+#-------------------------------------------------------------------------------
+
+eval "$(zoxide init zsh)"
