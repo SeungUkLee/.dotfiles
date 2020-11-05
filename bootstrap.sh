@@ -110,6 +110,14 @@ chmod +x $DOTFILES/tmux/tmux-*
 ln -sfn $DOTFILES/tmux/tmux-* /usr/local/bin/
 
 #-------------------------------------------------------------------------------
+# fish config
+#-------------------------------------------------------------------------------
+
+ln -sfn $DOTFILES/fish/config.fish $HOME/.config/fish/config.fish
+ln -sfn $DOTFILES/fish/export.fish $HOME/.config/fish/export.fish
+ln -sfn $DOTFILES/fish/aliases.fish $HOME/.config/fish/aliases.fish
+
+#-------------------------------------------------------------------------------
 # Set OS X preferences
 # We will run this last because this will reload the shell
 # Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753

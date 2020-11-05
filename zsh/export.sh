@@ -12,7 +12,7 @@ export EDITOR=/usr/local/bin/nvim
 
 #-------------------------------------------------------------------------------
 # GPG
-# @see https://github.com/keybase/keybase-issues/issues/2798# neovim
+# @see https://github.com/keybase/keybase-issues/issues/2798
 #-------------------------------------------------------------------------------
 
 export GPG_TTY=$(tty)

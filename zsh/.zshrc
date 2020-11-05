@@ -42,7 +42,7 @@ DEFAULT_USER="$USER"
 # * ~/.extra can be used for other settings you don’t want to commit.
 #-------------------------------------------------------------------------------
 
-files=("$DOTFILES/export.sh" "$DOTFILES/path.sh" "$DOTFILES/aliases.sh" "$DOTFILES/functions.sh");
+files=("$DOTFILES/zsh/export.sh" "$DOTFILES/zsh/path.sh" "$DOTFILES/zsh/aliases.sh" "$DOTFILES/zsh/functions.sh");
 
 for file in "${files[@]}"; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
