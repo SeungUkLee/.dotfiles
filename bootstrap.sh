@@ -33,7 +33,7 @@ brew update
 #-------------------------------------------------------------------------------
 
 brew tap homebrew/bundle
-brew bundle --file=$DOTFILES/Brewfile # Install binary & applications
+brew bundle --file=$DOTFILES/homebrew/Brewfile # Install binary & applications
 brew cleanup
 brew cask cleanup
 
@@ -41,13 +41,13 @@ brew cask cleanup
 # Install global Git configuration
 #-------------------------------------------------------------------------------
 
-ln -nfs $DOTFILES/.gitconfig $HOME/.gitconfig
+ln -nfs $DOTFILES/git/.gitconfig $HOME/.gitconfig
 
 read -p "Enter your git username: " git_username
 read -p "Enter your e-mail: " git_email
 read -p "Enter your GPG key ID: " git_sign_key
 
-git config --global core.excludesfile $DOTFILES/.gitignore_global
+git config --global core.excludesfile $DOTFILES/git/.gitignore_global
 git config --global user.name $git_username
 git config --global user.email $git_email
 git config --global user.signingkey $git_sign_key
@@ -79,7 +79,7 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 # Source profile
 #-------------------------------------------------------------------------------
 
-ln -nfs $DOTFILES/.zshrc $HOME/.zshrc
+ln -nfs $DOTFILES/zsh/.zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
 #-------------------------------------------------------------------------------
@@ -87,19 +87,19 @@ source $HOME/.zshrc
 # @see https://github.com/pstadler/keybase-gpg-github#method-2---gpg-suite
 #-------------------------------------------------------------------------------
 
-mkdir -p $HOME/.gnupg && cp $DOTFILES/gpg-agent.conf ~/.gnupg
+mkdir -p $HOME/.gnupg && cp $DOTFILES/gnupg/gpg-agent.conf ~/.gnupg
 
 #-------------------------------------------------------------------------------
 # Starship config
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/starship.toml $HOME/.config/starship.toml
+ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 
 #-------------------------------------------------------------------------------
 # Neovim config
 #-------------------------------------------------------------------------------
 
-ln -nfs $DOTFILES/init.vim $HOME/.config/nvim/init.vim
+ln -nfs $DOTFILES/nvim/init.vim $HOME/.config/nvim/init.vim
 
 #-------------------------------------------------------------------------------
 # Tmux config
