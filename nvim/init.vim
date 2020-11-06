@@ -1,6 +1,13 @@
 " ESC
 inoremap jk <esc>
 
+" Habit Breaking
+" @see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " Arrow keys
 "map i <Up>
 "map j <Left>
@@ -245,6 +252,7 @@ nnoremap <leader>w :bn<CR>
 nnoremap <leader>d :bd<CR>
 
 colorscheme gruvbox
+
 set termguicolors
 
 "nnoremap k gj
