@@ -255,6 +255,8 @@ colorscheme gruvbox
 
 set termguicolors
 
+highlight Comment cterm=italic gui=italic
+
 "nnoremap k gj
 "nnoremap i gk
 " <up>/<down> will move virtual lines (lines that wrap)

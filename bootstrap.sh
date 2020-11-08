@@ -118,6 +118,12 @@ ln -sfn $DOTFILES/fish/export.fish $HOME/.config/fish/export.fish
 ln -sfn $DOTFILES/fish/aliases.fish $HOME/.config/fish/aliases.fish
 
 #-------------------------------------------------------------------------------
+# Alacritty config
+#-------------------------------------------------------------------------------
+
+ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+
+#-------------------------------------------------------------------------------
 # Set OS X preferences
 # We will run this last because this will reload the shell
 # Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753
