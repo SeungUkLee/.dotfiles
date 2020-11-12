@@ -60,6 +60,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'bling/vim-airline'
 Plug 'andymass/vim-matchup'
 
+" Git
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -223,6 +229,30 @@ set rtp+=/usr/local/opt/fzf
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow\ --no-heading
 set grepformat=%f:%l:%c:%m
 
+" fzf-checkout config
+nnoremap <leader>gc :GBranches<CR>
+
+" nerdtree-git-plugin config
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+" vim-gitgutter config
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
 " Coc config
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -243,6 +273,7 @@ let g:NERDTreeMapCustomOpen = '<TAB>'
 "autocmd VimEnter * NERDTree
 " Focus editor
 "autocmd VimEnter * wincmd p
+" @see https://github.com/preservim/nerdtree/issues/1147#issuecomment-654496721
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " For vim-indentline
@@ -267,7 +298,9 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " <leader>s for Rg search
 noremap <leader>s :Rg
-let g:fzf_layout = { 'down': '~20%' }
+"let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 }}
+let $FZF_DEFAULT_OPTS='--reverse'
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
