@@ -8,53 +8,30 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Arrow keys
-"map i <Up>
-"map j <Left>
-"map k <Down>
-"noremap h i
-
-" Searching
+set nocompatible
 set hlsearch
 set incsearch
 set smartcase ignorecase
-
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 set autoindent smartindent
-
 set bs=indent,eol,start
-
 set nocp
-
-" Gui settings
 set number
 set relativenumber
 set laststatus=2
 set lazyredraw
-
-" Editor settings
 set nowrap
-
-" Don't create swp files
 set noswapfile
-
 set undodir=~/.vim/undodir
 set undofile
-
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 set wildmenu wildignorecase
 set wildmode=full
-
 set list listchars=tab:·\ ,trail:·,extends:>,precedes:<
-
-" Coc.nvim Config {{
 
 " TextEdit might fail if hidden is not set.
 set hidden
 
-" Some servers have issues with backup files, see #649.
+" Some servers have issues with backup files, see #649(coc.nvim).
 set nobackup
 set nowritebackup
 
@@ -68,14 +45,41 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-"if has("patch-8.1.1564")
-"  " Recently vim can merge signcolumn and number column into one
-"  set signcolumn=number
-"else
-"  set signcolumn=yes
-"endif
+let g:mapleader = ","
+
+" Neovim Plugins
+call plug#begin('~/.vim/plugged')
+
+" GUI enhancements
+Plug 'machakann/vim-highlightedyank'
+Plug 'Yggdroot/indentLine'
+Plug 'preservim/nerdtree'
+Plug 'morhetz/gruvbox'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'bling/vim-airline'
+Plug 'andymass/vim-matchup'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Semantic language support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Syntactic language support
+Plug 'sheerun/vim-polyglot'
+
+" Utils
+Plug 'preservim/nerdcommenter'
+
+call plug#end()
+
+colorscheme gruvbox
+set termguicolors
+highlight Comment cterm=italic gui=italic
+
+" Coc.nvim Config {{
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -207,36 +211,41 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Coc.nvim Config }}
 
+" @see https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
+autocmd BufEnter *.{js,ts} :syntax sync fromstart
+autocmd BufLeave *.{js,ts} :syntax sync clear
+
+" vim-highlightedyank highlight coloring setting
+highlight HighlightedyankRegion cterm=reverse gui=reverse guifg=#928374
+
 " FZF
 set rtp+=/usr/local/opt/fzf
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow\ --no-heading
 set grepformat=%f:%l:%c:%m
 
-" Neovim Plugins
-call plug#begin('~/.vim/plugged')
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'preservim/nerdtree'
-  Plug 'Yggdroot/indentLine'
-  Plug 'morhetz/gruvbox'
-  Plug 'bling/vim-airline'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-call plug#end()
-
 " Coc config
 let g:coc_global_extensions = [
-\ 'coc-tsserver',
+  \ 'coc-tsserver',
+  \ 'coc-pairs'
 \ ]
+" NERDCommenter config
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
+" NERDTree config
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:NERDTreeMapOpenSplit = 'h'
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMapCustomOpen = '<TAB>'
+" Open the file explorer when vim opens
+"autocmd VimEnter * NERDTree
+" Focus editor
+"autocmd VimEnter * wincmd p
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" For vim-indentline
 "let g:indentLine_char = '⎸'
 "let g:indentLine_first_char = '⎸'
 "let g:indentLine_showFirstIndentLevel = 1
@@ -246,22 +255,15 @@ let g:NERDTreeMapCustomOpen = '<TAB>'
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 "let g:airline_theme='hybrid'
 set laststatus=2 " turn on bottom bar
-let mapleader = ","
 nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 nnoremap <leader>d :bd<CR>
 
-colorscheme gruvbox
-
-set termguicolors
-
-highlight Comment cterm=italic gui=italic
-
 "nnoremap k gj
 "nnoremap i gk
-" <up>/<down> will move virtual lines (lines that wrap)
-noremap <silent> <expr> <down> (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> <up> (v:count == 0 ? 'gk' : 'k')
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " <leader>s for Rg search
 noremap <leader>s :Rg
@@ -282,7 +284,7 @@ command! -bang -nargs=* Rg
 "  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
 "  \                               'options': '--tiebreak=index'}, <bang>0)
 
-nnoremap <leader>w :w<CR>
+"nnoremap <leader>w :w<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
@@ -292,4 +294,3 @@ nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 nnoremap <silent> <Leader>h: :History:<CR>
 nnoremap <silent> <Leader>h/ :History/<CR> 
-
