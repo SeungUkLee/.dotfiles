@@ -78,6 +78,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Utils
 Plug 'preservim/nerdcommenter'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -232,19 +233,31 @@ set grepformat=%f:%l:%c:%m
 " fzf-checkout config
 nnoremap <leader>gc :GBranches<CR>
 
+" ale linters
+let b:ale_linters = {
+  \ 'javascript': ['eslint'],
+  \ 'typescript': ['eslint']
+  \ }
+let g:ale_fix_on_save = 1
+let b:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'javascript': ['eslint'],
+  \ 'typescript': ['eslint', 'prettier']
+  \ }
+
 " nerdtree-git-plugin config
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+  \ "Modified"  : "✹",
+  \ "Staged"    : "✚",
+  \ "Untracked" : "✭",
+  \ "Renamed"   : "➜",
+  \ "Unmerged"  : "═",
+  \ "Deleted"   : "",
+  \ "Dirty"     : "✗",
+  \ "Clean"     : "✔︎",
+  \ 'Ignored'   : '☒',
+  \ "Unknown"   : "?"
+  \ }
 
 " vim-gitgutter config
 let g:gitgutter_sign_added = '✚'
