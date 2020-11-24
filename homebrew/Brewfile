@@ -30,6 +30,7 @@ brew "mas"
 brew "git-delta"
 brew "zoxide"
 brew "tldr"
+brew "exercism"
 
 # Git
 brew "git"
