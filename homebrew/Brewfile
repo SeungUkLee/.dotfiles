@@ -36,6 +36,7 @@ brew "exercism"
 brew "git"
 brew "git-lfs"
 brew "gh"
+brew "gitui"
 
 # Related Terminal & Editor & Shell
 brew "zsh"
@@ -59,6 +60,8 @@ brew "gnu-getopt"
 brew "gnupg"
 brew "coreutils"
 brew "readline"
+# @see https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+# brew install openssl readline sqlite3 xz zlib
 
 #-------------------------------------------------------------------------------
 # External Application (Homebrew Cask)
@@ -71,6 +74,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "gpg-suite"
 cask "keybase"
 cask "karabiner-elements"
+cask "tableplus"
 
 #----
 cask "google-chrome"
