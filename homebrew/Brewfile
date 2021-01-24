@@ -75,6 +75,7 @@ cask "gpg-suite"
 cask "keybase"
 cask "karabiner-elements"
 cask "tableplus"
+cask "obsidian"
 
 #----
 cask "google-chrome"
