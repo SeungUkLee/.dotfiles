@@ -8,6 +8,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+set encoding=utf-8
+set fileencoding=utf-8
+
 set nocompatible
 set hlsearch
 set incsearch
@@ -28,10 +31,66 @@ set wildmenu wildignorecase
 set wildmode=full
 set list listchars=tab:·\ ,trail:·,extends:>,precedes:<
 
+let g:mapleader = ","
+
+" Neovim Plugins
+call plug#begin('~/.vim/plugged')
+
+" GUI enhancements
+Plug 'Yggdroot/indentLine'
+Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
+Plug 'andymass/vim-matchup'
+
+" Git
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'APZelos/blamer.nvim'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
+
+" Semantic language support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Syntactic language support
+Plug 'sheerun/vim-polyglot'
+
+" Utils
+Plug 'dense-analysis/ale'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-highlight', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-git', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-yank', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-smartf', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-lists', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'weirongxu/coc-explorer', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-sql', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'iamcco/coc-spell-checker', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-sh', { 'do': 'yarn install --frozen-lockfile' }
+
+call plug#end()
+
+colorscheme gruvbox
+set termguicolors
+highlight Comment cterm=italic gui=italic
+
+" Coc.nvim Config {{
+"
 " TextEdit might fail if hidden is not set.
 set hidden
 
-" Some servers have issues with backup files, see #649(coc.nvim).
+" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
 
@@ -45,51 +104,18 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-let g:mapleader = ","
-
-" Neovim Plugins
-call plug#begin('~/.vim/plugged')
-
-" GUI enhancements
-Plug 'machakann/vim-highlightedyank'
-Plug 'Yggdroot/indentLine'
-Plug 'preservim/nerdtree'
-Plug 'morhetz/gruvbox'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'bling/vim-airline'
-Plug 'andymass/vim-matchup'
-
-" Git
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" Semantic language support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Syntactic language support
-Plug 'sheerun/vim-polyglot'
-
-" Utils
-Plug 'preservim/nerdcommenter'
-Plug 'dense-analysis/ale'
-
-call plug#end()
-
-colorscheme gruvbox
-set termguicolors
-highlight Comment cterm=italic gui=italic
-
-" Coc.nvim Config {{
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -173,11 +199,14 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-" Note coc#float#scroll works on neovim >= 0.4.3 or vim >= 8.2.0750
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
@@ -199,14 +228,19 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
+nnoremap <silent> <space><space>    :<C-u>CocFzfList<CR>
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>a  :<C-u>CocFzfList diagnostics<cr>
+nnoremap <silent><nowait> <space>b  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>c  :<C-u>CocFzfList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocFzfList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
@@ -214,7 +248,11 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocFzfListResume<CR>
+
+" coc-explorer
+:nnoremap <space>e :CocCommand explorer<CR>
 
 " Coc.nvim Config }}
 
@@ -223,7 +261,7 @@ autocmd BufEnter *.{js,ts} :syntax sync fromstart
 autocmd BufLeave *.{js,ts} :syntax sync clear
 
 " vim-highlightedyank highlight coloring setting
-highlight HighlightedyankRegion cterm=reverse gui=reverse guifg=#928374
+" highlight HighlightedyankRegion cterm=reverse gui=reverse guifg=#928374
 
 " FZF
 set rtp+=/usr/local/opt/fzf
@@ -245,61 +283,11 @@ let b:ale_fixers = {
   \ 'typescript': ['eslint', 'prettier']
   \ }
 
-" nerdtree-git-plugin config
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-  \ "Modified"  : "✹",
-  \ "Staged"    : "✚",
-  \ "Untracked" : "✭",
-  \ "Renamed"   : "➜",
-  \ "Unmerged"  : "═",
-  \ "Deleted"   : "",
-  \ "Dirty"     : "✗",
-  \ "Clean"     : "✔︎",
-  \ 'Ignored'   : '☒',
-  \ "Unknown"   : "?"
-  \ }
-
-" vim-gitgutter config
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✹'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '-'
-
 " Coc config
-let g:coc_global_extensions = [
-  \ 'coc-tsserver',
-  \ 'coc-pairs'
-\ ]
-" NERDCommenter config
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" NERDTree config
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeIgnore = ['^node_modules$']
-let g:NERDTreeMapOpenSplit = 'h'
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMapCustomOpen = '<TAB>'
-" Open the file explorer when vim opens
-"autocmd VimEnter * NERDTree
-" Focus editor
-"autocmd VimEnter * wincmd p
-" @see https://github.com/preservim/nerdtree/issues/1147#issuecomment-654496721
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" For vim-indentline
-"let g:indentLine_char = '⎸'
-"let g:indentLine_first_char = '⎸'
-"let g:indentLine_showFirstIndentLevel = 1
-"let g:indentLine_setColors = 0
-
-" For vim-airline
-let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
-"let g:airline_theme='hybrid'
-set laststatus=2 " turn on bottom bar
-nnoremap <leader>q :bp<CR>
+" let g:coc_global_extensions = [
+" \ 'coc-pairs'
+" \ ]
+noremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 nnoremap <leader>d :bd<CR>
 
@@ -339,4 +327,5 @@ nnoremap <silent> <Leader>g :Commits<CR>
 nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 nnoremap <silent> <Leader>h: :History:<CR>
-nnoremap <silent> <Leader>h/ :History/<CR> 
+nnoremap <silent> <Leader>h/ :History/<CR>
+
