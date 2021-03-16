@@ -30,6 +30,12 @@ set undofile
 set wildmenu wildignorecase
 set wildmode=full
 set list listchars=tab:·\ ,trail:·,extends:>,precedes:<
+set autowrite
+set autoread
+set mouse=a
+set splitbelow
+set splitright
+set clipboard=unnamed
 
 let g:mapleader = ","
 
@@ -69,7 +75,7 @@ Plug 'neoclide/coc-git', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yank', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-smartf', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-lists', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
+"Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'weirongxu/coc-explorer', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'kkiyama117/coc-toml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'fannheyward/coc-sql', { 'do': 'yarn install --frozen-lockfile' }
@@ -78,6 +84,9 @@ Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-spell-checker', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'josa42/coc-sh', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-rust-analyzer', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'bling/vim-airline'
 
 call plug#end()
 
@@ -254,14 +263,75 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocFzfListResume<CR>
 " coc-explorer
 :nnoremap <space>e :CocCommand explorer<CR>
 
+" coc-yank
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+" coc-git
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+
+" coc-smartf
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ; <Plug>(coc-smartf-repeat)
+"nmap , <Plug>(coc-smartf-repeat-opposite)
+augroup Smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+augroup end
+
+" coc-lists
+" grep word under cursor
+command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
+
+function! s:GrepArgs(...)
+  let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
+        \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
+  return join(list, "\n")
+endfunction
+
+vnoremap <leader>g :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+nnoremap <leader>g :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+
+function! s:GrepFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  execute 'CocList grep '.word
+endfunction
+nnoremap <silent> <space>w  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+" Keymapping for grep word under cursor with interactive mode
+nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
 " Coc.nvim Config }}
 
 " @see https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
 autocmd BufEnter *.{js,ts} :syntax sync fromstart
 autocmd BufLeave *.{js,ts} :syntax sync clear
 
-" vim-highlightedyank highlight coloring setting
-" highlight HighlightedyankRegion cterm=reverse gui=reverse guifg=#928374
+" vim-ariline
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 
 " FZF
 set rtp+=/usr/local/opt/fzf
@@ -283,10 +353,6 @@ let b:ale_fixers = {
   \ 'typescript': ['eslint', 'prettier']
   \ }
 
-" Coc config
-" let g:coc_global_extensions = [
-" \ 'coc-pairs'
-" \ ]
 noremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 nnoremap <leader>d :bd<CR>
@@ -323,9 +389,28 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 nnoremap <silent> <Leader>' :Marks<CR>
-nnoremap <silent> <Leader>g :Commits<CR>
+nnoremap <silent> <Leader>c :Commits<CR>
 nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 nnoremap <silent> <Leader>h: :History:<CR>
 nnoremap <silent> <Leader>h/ :History/<CR>
 
+" plasticboy/vim-markdown (is included in vim-polyglot)
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_fenced_languages = ['js=javascript', 'ts=typescript', 'go', 'python', 'bash=sh', 'c', 'ruby']
+
+" Navigation
+vnoremap <silent> <Tab> >gv
+vnoremap <silent> <S-Tab> <gv
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-l> <C-w>l
+tnoremap <silent> <Esc><Esc> <C-\><C-n>
