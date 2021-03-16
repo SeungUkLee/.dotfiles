@@ -29,5 +29,5 @@ zoxide init fish | source
 # @see https://asdf-vm.com/#/core-manage-asdf?id=add-to-your-shell
 #-------------------------------------------------------------------------------
 
-source /usr/local/opt/asdf/asdf.fish
+source (brew --prefix asdf)/asdf.fish
 
