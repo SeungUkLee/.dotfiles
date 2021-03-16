@@ -100,6 +100,7 @@ ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 #-------------------------------------------------------------------------------
 
 ln -nfs $DOTFILES/nvim/init.vim $HOME/.config/nvim/init.vim
+ln -sfn $DOTFILES/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 #-------------------------------------------------------------------------------
 # Tmux config
