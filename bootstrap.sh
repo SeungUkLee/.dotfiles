@@ -42,6 +42,7 @@ brew cask cleanup
 #-------------------------------------------------------------------------------
 
 ln -nfs $DOTFILES/git/.gitconfig $HOME/.gitconfig
+ln -nfs $DOTFILES/git/.gitalias $HOME/.gitalias
 
 read -p "Enter your git username: " git_username
 read -p "Enter your e-mail: " git_email
