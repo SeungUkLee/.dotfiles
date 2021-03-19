@@ -62,6 +62,7 @@ brew "coreutils"
 brew "readline"
 # @see https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 # brew install openssl readline sqlite3 xz zlib
+brew glow
 
 #-------------------------------------------------------------------------------
 # External Application (Homebrew Cask)
@@ -75,7 +76,8 @@ cask "gpg-suite"
 cask "keybase"
 cask "karabiner-elements"
 cask "tableplus"
-cask "gitui"
+cask "stats"
+cask "rectangle"
 # cask "obsidian"
 
 #----
