@@ -30,3 +30,5 @@
 [include]
   path = ~/.gitalias
 
+[credential]
+	helper = osxkeychain
