@@ -60,28 +60,28 @@ git config --global rebase.autoStash true
 # Make ZSH the default shell environment
 #-------------------------------------------------------------------------------
 
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 
 #-------------------------------------------------------------------------------
 # Install Oh-my-zsh
 #-------------------------------------------------------------------------------
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #-------------------------------------------------------------------------------
 # Install zsh plugin
 #-------------------------------------------------------------------------------
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 #-------------------------------------------------------------------------------
 # Source profile
 #-------------------------------------------------------------------------------
 
-ln -nfs $DOTFILES/zsh/.zshrc $HOME/.zshrc
-source $HOME/.zshrc
+#ln -nfs $DOTFILES/zsh/.zshrc $HOME/.zshrc
+#source $HOME/.zshrc
 
 #-------------------------------------------------------------------------------
 # gpg-agent
