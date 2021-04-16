@@ -79,6 +79,7 @@ cask "karabiner-elements"
 cask "tableplus"
 cask "stats"
 cask "rectangle"
+cask "mathpix-snipping-tool"
 # cask "obsidian"
 
 #----
