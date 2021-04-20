@@ -50,7 +50,7 @@ brew "neovim"
 # brew "haskell-stack"
 
 ## Java
-brew "openjdk"
+# brew "openjdk"
 
 ## DevOps
 # brew "circleci"
