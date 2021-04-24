@@ -126,6 +126,12 @@ ln -sfn $DOTFILES/fish/aliases.fish $HOME/.config/fish/aliases.fish
 ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 #-------------------------------------------------------------------------------
+# Karabiner config
+#-------------------------------------------------------------------------------
+
+ln -sfn $DOTFILES/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
+
+#-------------------------------------------------------------------------------
 # Set OS X preferences
 # We will run this last because this will reload the shell
 # Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753
