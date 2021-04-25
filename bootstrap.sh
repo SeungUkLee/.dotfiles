@@ -127,9 +127,11 @@ ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 #-------------------------------------------------------------------------------
 # Karabiner config
+# Do not make a symlink to karabiner.json directly.
+# @see https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
+ln -sfn $DOTFILES/karabiner $HOME/.config
 
 #-------------------------------------------------------------------------------
 # Set OS X preferences
