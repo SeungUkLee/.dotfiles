@@ -3,6 +3,10 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
   "explorer.datetime.format": "yy/MM/dd HH:mm:ss",
+  "explorer.width": 35,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+  "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
