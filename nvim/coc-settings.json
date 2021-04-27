@@ -2,5 +2,20 @@
   "coc.preferences.colorSupport": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
-  "explorer.datetime.format": "yy/MM/dd HH:mm:ss"
+  "explorer.datetime.format": "yy/MM/dd HH:mm:ss",
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"],
+      "initializationOptions": {
+        "languageServerHaskell": {
+          "hlintOn": true,
+          "maxNumberOfProblems": 10,
+          "completionSnippetsOn": true
+        }
+      }
+    }
+  }
 }
