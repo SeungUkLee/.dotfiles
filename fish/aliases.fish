@@ -13,3 +13,6 @@ alias cat='bat --theme=(defaults read -globalDomain AppleInterfaceStyle &> /dev/
 alias ls 'exa -h --icons'
 alias ghpv 'gh issue list | fzf | awk '\''{print $1}'\'' | xargs gh issue view'
 alias ghiv 'gh pr list | fzf | awk '\''{print $1}'\'' | xargs gh pr view'
+alias mv 'mv -i'
+alias rm 'rm -i'
+
