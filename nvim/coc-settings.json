@@ -1,7 +1,7 @@
 {
   "coc.preferences.colorSupport": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.source": "vim-devicons",
   "explorer.datetime.format": "yy/MM/dd HH:mm:ss",
   "explorer.width": 35,
   "explorer.file.showHiddenFiles": true,
