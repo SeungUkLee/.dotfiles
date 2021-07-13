@@ -20,6 +20,16 @@
           "completionSnippetsOn": true
         }
       }
+    },
+    "racket": {
+      "command": "racket",
+      "args": [
+        "--lib",
+        "racket-langserver"
+      ],
+      "filetypes": [
+        "scheme"
+      ]
     }
   }
 }
