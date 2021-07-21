@@ -8,30 +8,37 @@ tap "homebrew/cask-fonts"
 tap "homebrew/services"
 
 #-------------------------------------------------------------------------------
-# Libraries 
+# Libraries
 #-------------------------------------------------------------------------------
 
 # Command Line Tools
 brew "asdf"
 brew "awscli"
-brew "bat"
-brew "dust"
 brew "ctop"
-brew "exa"
-brew "fd"
-brew "fzf"
-brew "httpie"
-brew "jq"
 brew "tree"
 brew "wget"
-brew "procs"
-brew "ripgrep"
 brew "mas"
-brew "git-delta"
-brew "zoxide"
-brew "tldr"
 brew "exercism"
 brew "navi"
+
+# A collection of modern commands
+# @see https://github.com/ibraheemdev/modern-unix
+brew "bat" # A `cat` clone with syntax highlighting and Git integration.
+brew "exa" # A modern replacement for `ls`.
+brew "git-delta" # A viewer for `git` and `diff` output.
+brew "dust" # A more intutive version of `du` written in rust.
+brew "duf" # A better `df` alternative.
+brew "broot" # A new way to see and navigate directory `tree`s.
+brew "fd" # A simple, fast and user-friendly alternative to `find`.
+brew "ripgrep" # An extremely fast alternative to `grep` that respects your gitignore.
+brew "ag" # A code searching tool simliar to `ack`, but faster.
+brew "fzf" # A general purpose command-line fuzzy finder.
+brew "jq" # `sed` for JSON data.
+brew "sd" # An intuitive find & replace CLI (`sed` alternative).
+brew "tldr" # A community effort to simplify `man` pages with practical examples.
+brew "procs" # A modern replacement for `ps` written in Rust.
+brew "httpie" # A modern, user-friendly command-line HTTP client for the API era.
+brew "zoxide" # A smarter `cd` command inspired by `z`.
 
 # Git
 brew "git"
@@ -116,4 +123,4 @@ mas "Slack", id: 803453959
 # mas "Microsoft Remote Desktop", id: 715768417
 # mas "GarageBand", id: 682658836
 # mas "Evernote", id: 406056744
-
+k
