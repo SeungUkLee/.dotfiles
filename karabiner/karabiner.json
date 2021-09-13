@@ -2,7 +2,7 @@
     "global": {
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
+        "show_profile_name_in_menu_bar": true
     },
     "profiles": [
         {
@@ -326,10 +326,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'NormalMode'"
-                                    },
-                                    {
-                                        "shell_command": "/usr/bin/osascript -e 'display notification \"Normal mode\" with title \"Normal Mode is On\"'"
+                                        "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Normal'"
                                     }
                                 ],
                                 "type": "basic"
@@ -344,100 +341,124 @@
                     "from": {
                         "key_code": "f1"
                     },
-                    "to": {
-                        "consumer_key_code": "display_brightness_decrement"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_decrement"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f2"
                     },
-                    "to": {
-                        "consumer_key_code": "display_brightness_increment"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_increment"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f3"
                     },
-                    "to": {
-                        "key_code": "mission_control"
-                    }
+                    "to": [
+                        {
+                            "key_code": "mission_control"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f4"
                     },
-                    "to": {
-                        "key_code": "launchpad"
-                    }
+                    "to": [
+                        {
+                            "key_code": "launchpad"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f5"
                     },
-                    "to": {
-                        "key_code": "illumination_decrement"
-                    }
+                    "to": [
+                        {
+                            "key_code": "illumination_decrement"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f6"
                     },
-                    "to": {
-                        "key_code": "illumination_increment"
-                    }
+                    "to": [
+                        {
+                            "key_code": "illumination_increment"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f7"
                     },
-                    "to": {
-                        "consumer_key_code": "rewind"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "rewind"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f8"
                     },
-                    "to": {
-                        "consumer_key_code": "play_or_pause"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "play_or_pause"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f9"
                     },
-                    "to": {
-                        "consumer_key_code": "fastforward"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "fastforward"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f10"
                     },
-                    "to": {
-                        "consumer_key_code": "mute"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "mute"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f11"
                     },
-                    "to": {
-                        "consumer_key_code": "volume_decrement"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_decrement"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f12"
                     },
-                    "to": {
-                        "consumer_key_code": "volume_increment"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_increment"
+                        }
+                    ]
                 }
             ],
-            "name": "CursorMode",
+            "name": "Cursor",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
@@ -447,29 +468,36 @@
                     "from": {
                         "key_code": "caps_lock"
                     },
-                    "to": {
-                        "key_code": "left_control"
-                    }
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "left_control"
                     },
-                    "to": {
-                        "key_code": "caps_lock"
-                    }
+                    "to": [
+                        {
+                            "key_code": "caps_lock"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "right_option"
                     },
-                    "to": {
-                        "key_code": "delete_forward"
-                    }
+                    "to": [
+                        {
+                            "key_code": "delete_forward"
+                        }
+                    ]
                 }
             ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
+                "indicate_sticky_modifier_keys_state": true,
                 "mouse_key_xy_scale": 100
             }
         },
@@ -492,10 +520,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'CursorMode'"
-                                    },
-                                    {
-                                        "shell_command": "/usr/bin/osascript -e 'display notification \"Cursor mode\" with title \"Cursor Mode is On\"'"
+                                        "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Cursor'"
                                     }
                                 ],
                                 "type": "basic"
@@ -510,100 +535,124 @@
                     "from": {
                         "key_code": "f1"
                     },
-                    "to": {
-                        "consumer_key_code": "display_brightness_decrement"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_decrement"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f2"
                     },
-                    "to": {
-                        "consumer_key_code": "display_brightness_increment"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_increment"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f3"
                     },
-                    "to": {
-                        "key_code": "mission_control"
-                    }
+                    "to": [
+                        {
+                            "key_code": "mission_control"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f4"
                     },
-                    "to": {
-                        "key_code": "launchpad"
-                    }
+                    "to": [
+                        {
+                            "key_code": "launchpad"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f5"
                     },
-                    "to": {
-                        "key_code": "illumination_decrement"
-                    }
+                    "to": [
+                        {
+                            "key_code": "illumination_decrement"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f6"
                     },
-                    "to": {
-                        "key_code": "illumination_increment"
-                    }
+                    "to": [
+                        {
+                            "key_code": "illumination_increment"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f7"
                     },
-                    "to": {
-                        "consumer_key_code": "rewind"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "rewind"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f8"
                     },
-                    "to": {
-                        "consumer_key_code": "play_or_pause"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "play_or_pause"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f9"
                     },
-                    "to": {
-                        "consumer_key_code": "fastforward"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "fastforward"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f10"
                     },
-                    "to": {
-                        "consumer_key_code": "mute"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "mute"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f11"
                     },
-                    "to": {
-                        "consumer_key_code": "volume_decrement"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_decrement"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "f12"
                     },
-                    "to": {
-                        "consumer_key_code": "volume_increment"
-                    }
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_increment"
+                        }
+                    ]
                 }
             ],
-            "name": "NormalMode",
+            "name": "Normal",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
@@ -613,21 +662,26 @@
                     "from": {
                         "key_code": "caps_lock"
                     },
-                    "to": {
-                        "key_code": "left_control"
-                    }
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ]
                 },
                 {
                     "from": {
                         "key_code": "left_control"
                     },
-                    "to": {
-                        "key_code": "caps_lock"
-                    }
+                    "to": [
+                        {
+                            "key_code": "caps_lock"
+                        }
+                    ]
                 }
             ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
+                "indicate_sticky_modifier_keys_state": true,
                 "mouse_key_xy_scale": 100
             }
         }

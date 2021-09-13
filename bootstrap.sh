@@ -131,7 +131,8 @@ ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 # @see https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/karabiner $HOME/.config
+# ln -sfn $DOTFILES/karabiner $HOME/.config
+cp -r $DOTFILES/karabiner $HOME/.config/karabiner
 
 #-------------------------------------------------------------------------------
 # Set OS X preferences
