@@ -59,6 +59,13 @@ function M.setup()
         require('gitsigns').setup()
       end,
     }
+    use { 
+      "simrat39/symbols-outline.nvim",
+      config = function()
+        require('plugins.symbols-outline').setup()
+      end
+    }
+
 
     -- LSP
     use { "neovim/nvim-lspconfig" }
@@ -72,6 +79,7 @@ function M.setup()
       },
     }
     use { "ray-x/lsp_signature.nvim" }
+    use { 'folke/lsp-colors.nvim' }
 
 
     -- Completion
