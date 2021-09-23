@@ -100,8 +100,10 @@ ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 # Neovim config
 #-------------------------------------------------------------------------------
 
-ln -nfs $DOTFILES/nvim/init.vim $HOME/.config/nvim/init.vim
-ln -sfn $DOTFILES/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
+# ln -nfs $DOTFILES/nvim/init.vim $HOME/.config/nvim/init.vim
+# ln -sfn $DOTFILES/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
+
+ln -nfs $DOTFILES/nvim/* $HOME/.config/nvim/
 
 #-------------------------------------------------------------------------------
 # Tmux config
