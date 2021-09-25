@@ -92,6 +92,8 @@ function M.setup()
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-path",
         "ray-x/cmp-treesitter",
+        "quangnguyen30192/cmp-nvim-ultisnips",
+
       },
       config = function()
         require('plugins.nvim-cmp').setup()
@@ -109,6 +111,16 @@ function M.setup()
       end,
     }
     use { "RRethy/nvim-treesitter-textsubjects" }
+
+
+    -- Snippet
+    use {
+      "SirVer/ultisnips",
+      requires = { "honza/vim-snippets" },
+      config = function()
+        vim.g.UltiSnipsRemoveSelectModeMappings = 0
+      end,
+    }
 
 
     -- Telescope
