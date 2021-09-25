@@ -25,28 +25,52 @@ local mode_adapters = {
 
 local keymappings = {
   insert_mode = {
-    ["jk"] = "<Esc>"
+    ["jk"] = "<Esc>",
+    [","] = ",<c-g>u",
+    ["."] = ".<c-g>u",
+    ["!"] = "!<c-g>u",
+    ["?"] = "?<c-g>u",
+    
   },
   normal_mode = {
-    ["<C-l>"] = "<Cmd>noh<CR>"
+    ["<C-l>"] = "<Cmd>noh<CR>",
+    ["n"] = "nzzzv",
+    ["N"] = "Nzzzv",
+    ["J"] = "mzJ`z",
+    ["Y"] = "y$",
+    ["<leader>q"] = "<Cmd>bp<CR>",
+    ["<leader>w"] = "<Cmd>bn<CR>",
+    ["<leader>d"] = "<Cmd>bd<CR>",
+    ["<C-j>"] = "<Cmd>m .+1<CR>==",
+    ["<C-k>"] = "<Cmd>m .-2<CR>==",
   },
   term_mode = {},
-  visual_mode = {},
+  visual_mode = {
+    ["<"] = "<gv",
+    [">"] = ">gv",
+    ["J"] = ":m '>+1<CR>gv=gv",
+    ["K"] = ":m '<-2<CR>gv=gv",
+  },
   visual_block_mode = {},
   command_mode = {}
 }
 
 local lsp_keymappings = {
   normal_mode = {
-    ["K"] = "<Cmd>lua vim.lsp.buf.hover()<CR>",
+    -- using lsp-saga
+    ["K"] = "<Cmd>Lspsaga hover_doc<CR>",
+    ["<C-f>"] = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+    ["<C-b>"] = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+    ["[e"] = "<Cmd>Lspsaga diagnostic_jump_next<CR>",
+    ["]e"] = "<Cmd>Lspsaga diagnostic_jump_prev<CR>",
+    ["<leader>rn"] = "<Cmd>Lspsaga rename<CR>",
+    ["<leader>gs"] = "<Cmd>Lspsaga signature_help<CR>",
+    ["<leader>ca"] = "<Cmd>Lspsaga code_action<CR>",
+    ["<leader>gh"] = '<Cmd>Lspsaga lsp_finder<CR>',
+    
     ["gD"] = "<Cmd>lua vim.lsp.buf.declaration()<CR>",
     ["gd"] = "<Cmd>lua vim.lsp.buf.definition()<CR>",
     ["gi"] = "<Cmd>lua vim.lsp.buf.implementation()<CR>",
-    ["<C-k>"] = "<Cmd>lua vim.lsp.buf.signature_help()<CR>",
-    ["[d"] = "<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
-    ["]d"] = '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
-    ["[e"] = "<Cmd>Lspsaga diagnostic_jump_next<CR>",
-    ["]e"] = "<Cmd>Lspsaga diagnostic_jump_prev<CR>"
   }
 }
 
