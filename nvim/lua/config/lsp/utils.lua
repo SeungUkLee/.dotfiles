@@ -52,11 +52,11 @@ function M.lsp_highlight(client, bufnr)
 end
 
 function M.lsp_config(client, bufnr)
-  require("lsp_signature").on_attach {
-    hint_prefix = " ",
-    bind = true,
-    handler_opts = { border = "single" },
-  }
+  -- require("lsp_signature").on_attach {
+  --   hint_prefix = " ",
+  --   bind = true,
+  --   handler_opts = { border = "single" },
+  -- }
 
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(...)

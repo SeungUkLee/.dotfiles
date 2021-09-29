@@ -78,7 +78,7 @@ function M.setup()
         "neovim/nvim-lspconfig"
       },
     }
-    use { "ray-x/lsp_signature.nvim" }
+    -- use { "ray-x/lsp_signature.nvim" }
     use { 'folke/lsp-colors.nvim' }
 
 
