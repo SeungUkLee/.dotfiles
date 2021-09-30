@@ -43,6 +43,9 @@ local keymappings = {
     ["<leader>d"] = "<Cmd>bd<CR>",
     ["<C-j>"] = "<Cmd>m .+1<CR>==",
     ["<C-k>"] = "<Cmd>m .-2<CR>==",
+
+    ["<C-n>"] = "<Cmd>NvimTreeToggle<CR>",
+    ["<leader>n"] = "<Cmd>NvimTreeFindFile<CR>",
   },
   term_mode = {},
   visual_mode = {
