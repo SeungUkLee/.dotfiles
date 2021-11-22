@@ -9,7 +9,9 @@ function M.setup()
 
 
     -- Color scheme
-    use { "sainnhe/gruvbox-material" }
+    -- use { "sainnhe/gruvbox-material" }
+    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+
     use { "kyazdani42/nvim-web-devicons" }
 
 

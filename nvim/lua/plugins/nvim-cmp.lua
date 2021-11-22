@@ -100,11 +100,11 @@ function M.setup()
   tabnine:setup { max_lines = 1000, max_num_results = 20, sort = true }
 
   -- Autopairs
-  require("nvim-autopairs.completion.cmp").setup({
-    map_cr = true,
-    map_complete = true,
-    auto_select = true
-  })
+  -- require("nvim-autopairs.completion.cmp").setup({
+  --   map_cr = true,
+  --   map_complete = true,
+  --   auto_select = true
+  -- })
 
 end
 

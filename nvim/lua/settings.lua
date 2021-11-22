@@ -10,7 +10,8 @@ local indent = 2
 function M.setup()
   cmd 'syntax enable'
   cmd 'filetype plugin indent on'
-  cmd "colorscheme gruvbox-material"
+  --cmd "colorscheme gruvbox-material"
+  cmd "colorscheme gruvbox"
   --cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
   cmd "au TextYankPost * silent! lua vim.highlight.on_yank()"
 

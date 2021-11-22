@@ -61,7 +61,8 @@ local keymappings = {
 local lsp_keymappings = {
   normal_mode = {
     -- using lsp-saga
-    ["K"] = "<Cmd>Lspsaga hover_doc<CR>",
+    -- ["K"] = "<Cmd>Lspsaga hover_doc<CR>",
+    ["K"] = "<cmd>lua vim.lsp.buf.hover()<CR>",
     ["<C-f>"] = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
     ["<C-b>"] = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
     ["[e"] = "<Cmd>Lspsaga diagnostic_jump_prev<CR>",
