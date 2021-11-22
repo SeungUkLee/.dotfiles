@@ -16,3 +16,5 @@ alias ghiv 'gh pr list | fzf | awk '\''{print $1}'\'' | xargs gh pr view'
 alias mv 'mv -i'
 alias rm 'rm -i'
 alias cp 'cp -i'
+alias gitlog 'git log --decorate=full --graph --stat'
+
