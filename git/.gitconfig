@@ -1,7 +1,7 @@
 [user]
 	name = SeungukLee
 	email = seunguk@seunguk.dev
-	signingkey = CDB070320580A52D
+	signingkey = F6095E88D57287C4
 [core]
   excludesfile = /Users/SeungUk/dotfiles/.gitignore_global
   precomposeunicode = true
