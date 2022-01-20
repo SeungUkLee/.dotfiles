@@ -21,13 +21,19 @@ starship init fish | source
 # zoxide config
 #-------------------------------------------------------------------------------
 
-zoxide init fish | source
+# zoxide init fish | source
 
 #-------------------------------------------------------------------------------
 # asdf config
-# "echo -e "\nsource "(brew --prefix asdf)"/asdf.fish" >> ~/.config/fish/config.fish" excution result
-# @see https://asdf-vm.com/#/core-manage-asdf?id=add-to-your-shell
+# "echo -e "\nsource "(brew --prefix asdf)"/libexec/asdf.fish" >> ~/.config/fish/config.fish: excution result
+# @see Fish & Homebrew tab in "https://asdf-vm.com/guide/getting-started.html#_3-install-asdf"
 #-------------------------------------------------------------------------------
 
-source (brew --prefix asdf)/asdf.fish
+# source (brew --prefix asdf)/asdf.fish
+source (brew --prefix asdf)/libexec/asdf.fish
 
+
+#-------------------------------------------------------------------------------
+# ghcup config
+#-------------------------------------------------------------------------------
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/seunguk/.ghcup/bin $PATH # ghcup-env
