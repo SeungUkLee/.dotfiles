@@ -1,0 +1,68 @@
+[
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "command": "vscode-neovim.compositeEscape2",
+    "key": "k",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "k"
+  },
+  {
+    "key": "ctrl+.",
+    "command": "keyboard-quickfix.openQuickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": ", e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
+    "key": "ctrl+w w",
+    "command": "workbench.view.explorer",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "problems.action.focusProblemsFromFilter",
+    "when": "problemsFilterFocus"
+  },
+  {
+    "key": "/",
+    "command": "problems.action.focusFilter",
+    "when": "focusedView == 'workbench.panel.markers.view'"
+  },
+  {
+    "key": "ctrl+w w",
+    "command": "workbench.actions.view.problems",
+    "when": "focusedView == 'workbench.panel.markers.view' && workbench.panel.markers.view.active"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "list.toggleExpand",
+    "when": "listFocus && focusedView == 'workbench.panel.markers.view' && !inputFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "cmd+k cmd+p",
+    "command": "docsView.documentationView.pin"
+  },
+]
