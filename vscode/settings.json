@@ -1,5 +1,4 @@
 {
-  "haskell.formattingProvider": "stylish-haskell",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "editor.tabSize": 2,
@@ -8,7 +7,6 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/seunguk/init.vim",
   "editor.lineNumbers": "relative",
   "editor.detectIndentation": false,
-  "editor.scrollBeyondLastLine": false,
   "workbench.list.automaticKeyboardNavigation": false,
   "editor.minimap.enabled": false,
   "workbench.iconTheme": "eq-material-theme-icons-darker",
@@ -16,7 +14,6 @@
   "workbench.colorCustomizations": {
     "[Material Theme Darker]": {}
   },
-  "haskell.manageHLS": "PATH",
   "files.exclude": {
     "**/node_modules": true,
     "**/yarn.lock": true
@@ -24,4 +21,9 @@
   "editor.peekWidgetDefaultFocus": "editor",
   "workbench.editor.enablePreview": false,
   "docsView.documentationView.updateMode": "sticky",
+  "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell"
+  },
+  "haskell.manageHLS": "GHCup",
+  "haskell.formattingProvider": "stylish-haskell",
 }
