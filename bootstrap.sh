@@ -128,6 +128,11 @@ ln -sfn $DOTFILES/fish/aliases.fish $HOME/.config/fish/aliases.fish
 ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 #-------------------------------------------------------------------------------
+# JetBrains IDEA config
+#-------------------------------------------------------------------------------
+ln -sfn $DOTFILES/idea/.ideavimrc $HOME/.ideavimrc
+
+#-------------------------------------------------------------------------------
 # Karabiner config
 # Do not make a symlink to karabiner.json directly.
 # @see https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/

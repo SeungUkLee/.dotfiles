@@ -1,0 +1,48 @@
+" Reference links
+" https://github.com/johngrib/dotfiles/blob/40fb75b949206050e8696951cc30e95edf6d5a29/.ideavimrc
+
+set number
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set matchpairs
+set undolevels=2000
+set nrformats
+set visualbell
+
+" Esc
+inoremap jk <esc>
+
+let mapleader=","
+
+" @see https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+
+" easymotion
+" @see https://github.com/AlexPl292/IdeaVim-EasyMotion#supported-commands
+
+" nerdtree
+" @see https://github.com/JetBrains/ideavim/wiki/NERDTree-support
+nmap <leader>e :NERDTreeFind<CR>
+
+nnoremap <leader>Lr :source ~/.ideavimrc<CR>
+nnoremap <leader>Lc :e ~/.ideavimrc<CR>
+
+" ideavim only
+set ideajoin  " @see https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
+set ideamarks " Sync IJ bookmarks and Vim marks
+
+nnoremap Y y$
+nnoremap <SPACE>y "+y
+vnoremap <SPACE>y "+y
+nnoremap <SPACE>p "+p
+nnoremap <SPACE>a ggVG
+vnoremap <SPACE>a ggVG
+
+nnoremap gl 1gtgT
+nnoremap gf 1gt
