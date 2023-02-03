@@ -45,3 +45,9 @@ eval "$(cs java --jvm adopt:11 --env)"
 
 # opam configuration
 source /Users/seunguk/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+#-------------------------------------------------------------------------------
+# rbenv
+#-------------------------------------------------------------------------------
+status --is-interactive; and rbenv init - fish | source
+
