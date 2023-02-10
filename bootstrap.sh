@@ -105,6 +105,8 @@ ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 
 ln -nfs $DOTFILES/nvim/* $HOME/.config/nvim/
 
+ln -nfs $DOTFILES/vscode/init.vim $HOME
+
 #-------------------------------------------------------------------------------
 # Tmux config
 #-------------------------------------------------------------------------------
