@@ -1,16 +1,24 @@
 {
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "zenMode.hideLineNumbers": false,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "editor.stickyScroll.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": true,
+    "source.organizeImports": true
+  },
   "editor.tabSize": 2,
-  "editor.fontFamily": "JetBrainsMono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "CaskaydiaCove Nerd Font, JetBrainsMono, Menlo, Monaco, Fira Code, 'Courier New', monospace",
   "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/seunguk/init.vim",
   "editor.lineNumbers": "relative",
   "editor.detectIndentation": false,
-  "workbench.list.automaticKeyboardNavigation": false,
-  "editor.minimap.enabled": false,
-  "workbench.iconTheme": "eq-material-theme-icons-darker",
-  "workbench.colorTheme": "Gruvbox Dark Medium",
+  // "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Everforest Dark",
   "workbench.colorCustomizations": {
     "[Material Theme Darker]": {}
   },
@@ -25,5 +33,11 @@
     "editor.defaultFormatter": "haskell.haskell"
   },
   "haskell.manageHLS": "GHCup",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/init.vim",
   "haskell.formattingProvider": "stylish-haskell",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "editor.minimap.enabled": false
 }
