@@ -15,7 +15,7 @@ tap "homebrew/services"
 brew "asdf"
 brew "awscli"
 brew "ctop"
-brew "tree"
+# brew "tree"
 brew "wget"
 brew "mas"
 brew "exercism"
@@ -24,7 +24,8 @@ brew "navi"
 # A collection of modern commands
 # @see https://github.com/ibraheemdev/modern-unix
 brew "bat" # A `cat` clone with syntax highlighting and Git integration.
-brew "exa" # A modern replacement for `ls`.
+brew "eza" # A mordern replacement for `ls`.
+# brew "exa" # (Deprecated) A modern replacement for `ls`.
 brew "git-delta" # A viewer for `git` and `diff` output.
 brew "dust" # A more intutive version of `du` written in rust.
 brew "duf" # A better `df` alternative.
