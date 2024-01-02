@@ -1,4 +1,3 @@
-set -gx GPG_TTY (tty)
 
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/path.fish
@@ -36,7 +35,8 @@ source (brew --prefix asdf)/libexec/asdf.fish
 #-------------------------------------------------------------------------------
 # ghcup config
 #-------------------------------------------------------------------------------
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/seunguk/.ghcup/bin $PATH # ghcup-env
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+set -gx PATH $HOME/.cabal/bin /Users/seunguk/.ghcup/bin $PATH # ghcup-env
 
 #-------------------------------------------------------------------------------
 # JAVA_HOME using Coursier
@@ -44,10 +44,9 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; se
 eval "$(cs java --jvm adopt:11 --env)"
 
 # opam configuration
-source /Users/seunguk/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+source /Users/seunguk/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
 
 #-------------------------------------------------------------------------------
 # rbenv
 #-------------------------------------------------------------------------------
 status --is-interactive; and rbenv init - fish | source
-
