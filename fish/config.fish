@@ -1,14 +1,7 @@
-
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/path.fish
 source ~/.config/fish/export.fish
 source ~/.config/fish/functions.fish
-
-#-------------------------------------------------------------------------------
-# Path to your dotfiles installation.
-#-------------------------------------------------------------------------------
-
-set -x DOTFILES $HOME/.dotfiles
 
 #-------------------------------------------------------------------------------
 # starship config
@@ -43,7 +36,9 @@ set -gx PATH $HOME/.cabal/bin /Users/seunguk/.ghcup/bin $PATH # ghcup-env
 #-------------------------------------------------------------------------------
 eval "$(cs java --jvm adopt:11 --env)"
 
+#-------------------------------------------------------------------------------
 # opam configuration
+#-------------------------------------------------------------------------------
 source /Users/seunguk/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
 
 #-------------------------------------------------------------------------------
