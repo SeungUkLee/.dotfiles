@@ -1,9 +1,9 @@
 [user]
-	name = SeungukLee
-	email = seunguk@seunguk.dev
-	signingkey = F6095E88D57287C4
+  name = SeungukLee
+  email = inheritlucem@gmail.com
+  signingkey = D9A9418ADDF844A2
 [core]
-  excludesfile = /Users/SeungUk/dotfiles/.gitignore_global
+  excludesfile = ~/.gitignore_global
   precomposeunicode = true
   quotepath = false
   pager = delta
@@ -11,24 +11,40 @@
   side-by-side = true
   line-numbers-left-format = ""
   line-numbers-right-format = "│ "
-  syntax-theme = Monokai Extended
+  navigate = true # use n and N to move between diff sections
+  # syntax-theme = Monokai Extended
+[diff]
+  algorithm = histogram
 [interactive]
   diffFilter = delta --color-only
 [commit]
   gpgsign = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
 [init]
   defaultBranch = main
 [pull]
-	rebase = true
+  rebase = true
 [rebase]
-	autoStash = true
-[include]
-  path = ~/.gitalias
+  autosquash = true
+  autostash = true
+[merge]
+  tool = nvimdiff
+  conflictstyle = zdiff3
+[log]
+  date = iso
+[branch]
+  sort = -committerdate
+[tag]
+  sort = -taggerdate
+[rerere]
+  enabled = true
 
-[credential]
-	helper = osxkeychain
+# [include]
+#   path = ~/.gitalias
+
+# [filter "lfs"]
+#   clean = git-lfs clean -- %f
+#   smudge = git-lfs smudge -- %f
+#   process = git-lfs filter-process
+#   required = true
+# [credential]
+#   helper = osxkeychain
