@@ -7,94 +7,33 @@
 export DOTFILES=$HOME/.dotfiles
 
 #-------------------------------------------------------------------------------
-# Update dotfiles itself first
+# Create bin folder for custom commands
 #-------------------------------------------------------------------------------
 
-if [ -d "$DOTFILES/.git" ]; then
-  git --work-tree="$DOTFILES" --git-dir="$DOTFILES/.git" pull origin master
-fi
-
-#-------------------------------------------------------------------------------
-# Check for Homebrew and install if we don't have it
-#-------------------------------------------------------------------------------
-
-if test ! $(which brew); then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
-#-------------------------------------------------------------------------------
-# Update Homebrew recipes
-#-------------------------------------------------------------------------------
-
-brew update
-
-#-------------------------------------------------------------------------------
-# Install all our dependencies with bundle (See Brewfile)
-#-------------------------------------------------------------------------------
-
-brew tap homebrew/bundle
-brew bundle --file=$DOTFILES/homebrew/Brewfile # Install binary & applications
-brew cleanup
-brew cask cleanup
+mkdir -p $HOME/bin
 
 #-------------------------------------------------------------------------------
 # Install global Git configuration
 #-------------------------------------------------------------------------------
 
-ln -nfs $DOTFILES/git/.gitconfig $HOME/.gitconfig
-ln -nfs $DOTFILES/git/.gitalias $HOME/.gitalias
-
-read -p "Enter your git username: " git_username
-read -p "Enter your e-mail: " git_email
-read -p "Enter your GPG key ID: " git_sign_key
-
-git config --global core.excludesfile $DOTFILES/git/.gitignore_global
-git config --global user.name $git_username
-git config --global user.email $git_email
-git config --global user.signingkey $git_sign_key
-git config --global init.defaultBranch main
-git config --global pull.rebase true
-git config --global rebase.autoStash true
-
-#-------------------------------------------------------------------------------
-# Make ZSH the default shell environment
-#-------------------------------------------------------------------------------
-
-#chsh -s $(which zsh)
-
-#-------------------------------------------------------------------------------
-# Install Oh-my-zsh
-#-------------------------------------------------------------------------------
-
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-#-------------------------------------------------------------------------------
-# Install zsh plugin
-#-------------------------------------------------------------------------------
-
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-#git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-
-#-------------------------------------------------------------------------------
-# Source profile
-#-------------------------------------------------------------------------------
-
-#ln -nfs $DOTFILES/zsh/.zshrc $HOME/.zshrc
-#source $HOME/.zshrc
+ln -sf $DOTFILES/git/.gitconfig $HOME/.gitconfig
+# ln -sf $DOTFILES/git/.gitalias $HOME/.gitalias
+ln -s $DOTFILES/git/.gitignore_global $HOME/.gitignore_global
 
 #-------------------------------------------------------------------------------
 # gpg-agent
 # @see https://github.com/pstadler/keybase-gpg-github#method-2---gpg-suite
 #-------------------------------------------------------------------------------
 
-mkdir -p $HOME/.gnupg && cp $DOTFILES/gnupg/gpg-agent.conf ~/.gnupg
+mkdir -p $HOME/.gnupg
+cp $DOTFILES/gnupg/gpg-agent.conf ~/.gnupg
+gpgconf --kill gpg-agent
 
 #-------------------------------------------------------------------------------
 # Starship config
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
+# ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 
 #-------------------------------------------------------------------------------
 # Neovim config
@@ -103,55 +42,55 @@ ln -sfn $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 # ln -nfs $DOTFILES/nvim/init.vim $HOME/.config/nvim/init.vim
 # ln -sfn $DOTFILES/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
-ln -nfs $DOTFILES/nvim/* $HOME/.config/nvim/
+# mkdir -p ~/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config
 
-ln -nfs $DOTFILES/vscode/init.vim $HOME
+ln -s $DOTFILES/vscode/init.vim $HOME
 
 #-------------------------------------------------------------------------------
 # Tmux config
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 chmod +x $DOTFILES/tmux/tmux-*
-ln -sfn $DOTFILES/tmux/tmux-* /usr/local/bin/
+# ln -sfn $DOTFILES/tmux/tmux-* /usr/local/bin/
+ln -s $DOTFILES/tmux/tmux-* ~/bin
 
 #-------------------------------------------------------------------------------
 # fish config
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/fish/config.fish $HOME/.config/fish/config.fish
-ln -sfn $DOTFILES/fish/export.fish $HOME/.config/fish/export.fish
-ln -sfn $DOTFILES/fish/aliases.fish $HOME/.config/fish/aliases.fish
+# ln -sfn $DOTFILES/fish/config.fish $HOME/.config/fish/config.fish
+# ln -sfn $DOTFILES/fish/export.fish $HOME/.config/fish/export.fish
+# ln -sfn $DOTFILES/fish/aliases.fish $HOME/.config/fish/aliases.fish
 
 #-------------------------------------------------------------------------------
 # Alacritty config
 #-------------------------------------------------------------------------------
 
-ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+# ln -sfn $DOTFILES/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 #-------------------------------------------------------------------------------
 # JetBrains IDEA config
 #-------------------------------------------------------------------------------
-ln -sfn $DOTFILES/idea/.ideavimrc $HOME/.ideavimrc
+
+ln -sf $DOTFILES/idea/.ideavimrc $HOME/.ideavimrc
 
 #-------------------------------------------------------------------------------
-# Karabiner config
-# Do not make a symlink to karabiner.json directly.
-# @see https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
+# powerlevel10k (p10k) config
 #-------------------------------------------------------------------------------
 
-# ln -sfn $DOTFILES/karabiner $HOME/.config
-cp -r $DOTFILES/karabiner $HOME/.config/karabiner
+ln -s $DOTFILES/p10k/.p10k.zsh $HOME/.p10k.zsh
 
 #-------------------------------------------------------------------------------
-# Set OS X preferences
-# We will run this last because this will reload the shell
-# Fix backtick(`) issue @see https://ani2life.com/wp/?p=1753
+# ZSH config
 #-------------------------------------------------------------------------------
 
-#if [[ ! -d $HOME/Library/KeyBindings ]]; then
-#    mkdir -p $HOME/Library/KeyBindings
-#fi
-#cp $DOTFILES/mac/DefaultkeyBinding.dict
+ln -s $DOTFILES/zsh/.zshrc $HOME/.zshrc
 
-#source $DOTFILES/.osx
+#-------------------------------------------------------------------------------
+# lsd config
+#-------------------------------------------------------------------------------
+
+mkdir -p $HOME/.config/lsd
+ln -s $DOTFILES/lsd/config.yaml ~/.config/lsd/config.yaml
