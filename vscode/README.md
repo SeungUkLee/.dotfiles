@@ -1,11 +1,4 @@
-## Setting
 
-* Set the neovim path in `vscode-neovim.neovimExecutablePaths.darwin`. 
-* Set the neovim `init.vim` file path in `vscode-neovim.neovimInitVimPaths.darwin`.  
+### VS Code 설정 동기화 사용
 
-Example:
-
-```
-"vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-"vscode-neovim.neovimInitVimPaths.darwin": "/Users/seunguk/init.vim",
-```
+`Code` &rarr; `Settings` &rarr; `Settings Sync is On`
