@@ -63,6 +63,10 @@
 
 - `Automatically hide and show the Dock` - on
 
+### Displays
+
+- `True Tone` - off
+
 ### Lock Screen
 
 - `Require password after screen saver begin or display is turned off` 를 `Immediately` 로 설정
