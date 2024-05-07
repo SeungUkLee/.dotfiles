@@ -1,5 +1,6 @@
 set ignorecase
 set wildignorecase
+set clipboard=unnamedplus
 
 let mapleader=","
 
