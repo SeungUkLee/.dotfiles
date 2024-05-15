@@ -14,6 +14,10 @@ return {
             },
           },
         },
+        racket_langserver = {
+          mason = false,
+          cmd = { "racket", "--lib", "racket-langserver" },
+        },
       },
     },
   },
