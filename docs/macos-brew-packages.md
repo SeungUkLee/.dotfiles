@@ -8,6 +8,7 @@
 - neovim tmux wget
 - asdf yarn pnpm
 - curl
+- coursier/formulas/coursier
 
 ## brew --cask
 - iterm2 visual-studio-code jetbrains-toolbox 

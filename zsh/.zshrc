@@ -153,3 +153,5 @@ zle_highlight+=('paste:none')
 PATH="/opt/homebrew/opt/curl/bin:$PATH" 
 FPATH="/opt/homebrew/opt/curl/share/zsh/site-functions:$FPATH" # for zsh completions
 
+fpath=(~/.zsh/completion $fpath)
+
