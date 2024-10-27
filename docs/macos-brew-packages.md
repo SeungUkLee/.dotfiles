@@ -11,7 +11,8 @@
 - coursier/formulas/coursier
 
 ## brew --cask
-- iterm2 visual-studio-code jetbrains-toolbox 
+- wezterm
+- visual-studio-code jetbrains-toolbox 
 - karabiner-elements rectangle stats
 - obsidian zotero logseq google-drive
 - google-chrome arc

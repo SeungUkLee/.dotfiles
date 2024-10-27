@@ -100,3 +100,9 @@ ln -s $DOTFILES/zsh/.zshrc $HOME/.zshrc
 
 mkdir -p $HOME/.config/lsd
 ln -s $DOTFILES/lsd/config.yaml ~/.config/lsd/config.yaml
+
+#-------------------------------------------------------------------------------
+# wezterm config
+#-------------------------------------------------------------------------------
+mkdir -p $HOME/.config/wezterm
+ln -s $DOTFILES/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
