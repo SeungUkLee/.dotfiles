@@ -9,6 +9,7 @@
 - asdf yarn pnpm
 - curl
 - coursier/formulas/coursier
+- orbstack
 
 ## brew --cask
 - wezterm
