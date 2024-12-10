@@ -155,3 +155,5 @@ FPATH="/opt/homebrew/opt/curl/share/zsh/site-functions:$FPATH" # for zsh complet
 
 fpath=(~/.zsh/completion $fpath)
 
+
+source /Users/seunguk/.config/broot/launcher/bash/br
