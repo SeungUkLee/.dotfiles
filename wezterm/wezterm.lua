@@ -48,6 +48,12 @@ config.keys = {
 	{ mods = "CMD", key = "[", action = action.ActivatePaneDirection("Prev") },
 	{ mods = "CMD", key = "]", action = action.ActivatePaneDirection("Next") },
 	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+
+	-- @see https://github.com/wez/wezterm/issues/253#issuecomment-672007120
+	-- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
+	{ key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+	-- Make Option-Right equivalent to Alt-f; forward-word
+	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
 }
 
 if wezterm.target_triple ~= "x86_64-pc-windows-msvc" then
