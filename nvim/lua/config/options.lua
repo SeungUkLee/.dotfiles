@@ -7,3 +7,4 @@
 -- vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 vim.g.mapleader = ","
+vim.g.snacks_animate = false
