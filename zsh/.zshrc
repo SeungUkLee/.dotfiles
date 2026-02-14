@@ -123,6 +123,7 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias brewu='brew upgrade; brew cleanup'
 
 HISTSIZE=90000
 SAVEHIST=90000
