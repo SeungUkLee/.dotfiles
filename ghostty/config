@@ -1,0 +1,23 @@
+# Default: ghostty +show-config --default --docs
+#
+font-family = JetBrains Mono
+font-family = Apple SD Gothic Neo
+font-size = 14
+cursor-style = block
+
+theme = gruvbox-dark-medium
+
+window-padding-x = 4
+window-padding-y = 4
+# window-padding-color = extend
+# window-padding-balance = true
+
+macos-icon = chalkboard
+macos-option-as-alt = true
+
+split-divider-color = #444444
+resize-overlay = never
+
+bell-features = no-system,no-audio,attention,title,border
+quit-after-last-window-closed = true
+

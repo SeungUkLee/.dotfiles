@@ -16,16 +16,20 @@
 - visual-studio-code jetbrains-toolbox 
 - karabiner-elements rectangle stats
 - obsidian zotero logseq google-drive
-- google-chrome arc
+- google-chrome
 - discord notion
+- ghostty
 
 ## font
 
 ```
-brew tap homebrew/cask-fonts
 brew install font-caskaydia-cove-nerd-font
 brew install font-fira-code-nerd-font
+brew install font-google-sans-code
+brew install font-jetbrains-mono
 ```
+
+- [Monaco Nerd Font](https://github.com/thep0y/monaco-nerd-font)
 
 ## App store
 - KaKaoTalk

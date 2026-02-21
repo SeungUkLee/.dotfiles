@@ -106,3 +106,11 @@ ln -s $DOTFILES/lsd/config.yaml ~/.config/lsd/config.yaml
 #-------------------------------------------------------------------------------
 mkdir -p $HOME/.config/wezterm
 ln -s $DOTFILES/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+
+#-------------------------------------------------------------------------------
+# ghostty config
+#-------------------------------------------------------------------------------
+mkdir -p $HOME/.config/ghostty
+mkdir -p $HOME/.config/ghostty/themes
+ln -s $DOTFILES/ghostty/config ~/.config/ghostty/config
+ln -s $DOTFILES/ghostty/themes ~/.config/ghostty/themes
