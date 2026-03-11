@@ -57,10 +57,13 @@ ln -s $DOTFILES/vscode/init.vim $HOME
 # Tmux config
 #-------------------------------------------------------------------------------
 
+# tmux (prefix + I to install plugins)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
-chmod +x $DOTFILES/tmux/tmux-*
-# ln -sfn $DOTFILES/tmux/tmux-* /usr/local/bin/
-ln -s $DOTFILES/tmux/tmux-* ~/bin
+
+# chmod +x $DOTFILES/tmux/tmux-*
+# # ln -sfn $DOTFILES/tmux/tmux-* /usr/local/bin/
+# ln -s $DOTFILES/tmux/tmux-* ~/bin
 
 #-------------------------------------------------------------------------------
 # fish config
