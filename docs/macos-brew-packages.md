@@ -27,6 +27,7 @@ brew install font-caskaydia-cove-nerd-font
 brew install font-fira-code-nerd-font
 brew install font-google-sans-code
 brew install font-jetbrains-mono
+# brew install font-public-sans
 ```
 
 - [Monaco Nerd Font](https://github.com/thep0y/monaco-nerd-font)

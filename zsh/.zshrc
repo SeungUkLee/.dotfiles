@@ -124,6 +124,7 @@ alias rm='rm -i'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias brewu='brew upgrade; brew cleanup'
+alias fdm='fd --hidden --no-ignore'
 
 HISTSIZE=90000
 SAVEHIST=90000
@@ -156,5 +157,8 @@ FPATH="/opt/homebrew/opt/curl/share/zsh/site-functions:$FPATH" # for zsh complet
 
 fpath=(~/.zsh/completion $fpath)
 
-
 source /Users/seunguk/.config/broot/launcher/bash/br
+
+# claude code
+export PATH="$HOME/.local/bin:$PATH"
+
